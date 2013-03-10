@@ -1,0 +1,18 @@
+<!doctype html>
+<html ng-app="demo" lang="en" ng-controller="ctl">
+  <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.js"></script>
+    <script src="hotkeyregistry.js"></script>
+    <script src="demo.js"></script>
+  </head>
+  <body>
+    <h2>angular-hotkeyregistry</h2>
+    Listenting to Enter, Escape, j, Ctrl Shift H
+    <button ng-click="toggle()">toggle</button>
+    <div ng-include="incl">
+    </div>
+    <div ng-show="! incl">
+      <h3>Inactive</h3>
+    </div>
+  </body>
+</html>
