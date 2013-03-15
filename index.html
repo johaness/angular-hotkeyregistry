@@ -4,15 +4,57 @@
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.js"></script>
     <script src="hotkeyregistry.js"></script>
     <script src="demo.js"></script>
+    <link rel="stylesheet" href="http://rc.getbootstrap.com/assets/css/bootstrap.css"></link>
+    <style>
+        .kcap {
+            background: #fff;
+            display: inline-block;
+            padding: 4px;
+            margin-left: 4px;
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            text-align: center;
+        }
+    </style>
   </head>
-  <body>
-    <h2>angular-hotkeyregistry</h2>
-    Listenting to Enter, Escape, j, Ctrl Shift H
-    <button ng-click="toggle()">toggle</button>
+  <body class="container">
+    <h1>angular-hotkeyregistry</h1>
+    <div class="well">
+        <h4>Automatic key binding map</h4>
+        <dl ng-repeat="k in keys" class="dl-horizontal">
+            <dt>
+                <span class="kcap" title="{{s[1].toUpperCase()}}" ng-repeat="s in k.symbols">{{s[0]}}</span>
+            </dt>
+            <dd>{{k.filter.help}}</dd>
+        </dl>
+    </div>
+    <form class="form-horizontal">
+        <label>Input for testing supression inside:</label>
+        <input type="text" />
+        <div class="form-actions">
+            <button class="btn" ng-click="toggle()">toggle view</button>
+        </div>
+    </form>
     <div ng-include="incl">
     </div>
     <div ng-show="! incl">
-      <h3>Inactive</h3>
+        <h3>View 2: Inactive</h3>
+        List of supported keys:
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Name</th>
+                    <th>Key Code</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="(k, s) in syms">
+                    <td><span class="kcap">{{s[0]}}</span></td><td>{{s[1]}}</td><td><code>{{k}}</code></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-  </body>
+</body>
 </html>

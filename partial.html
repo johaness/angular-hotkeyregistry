@@ -1,6 +1,7 @@
 <div ng-controller="hotkeys">
-  <h3>Active</h3>
-  <ul>
+  <h3>View 1: Active</h3>
+  Log:
+  <ul class="list-unstyled">
     <li ng-repeat="l in log | orderBy:'ts':true">{{l.t}}</li>
   </ul>
 </div>
